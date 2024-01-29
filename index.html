@@ -45,14 +45,16 @@
 
 <script>
     let count = 0;
-    let theme = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+    let theme = ['#a4bfeb', '#d9b9ed'];
+    let text =[ '#3863a8', '#6c3a8b'];
 
     document.getElementById('toggleModeButton').addEventListener('click', function() {
         document.body.classList.toggle('new-theme');
 
         let button=document.getElementById('toggleModeButton');
-        button.style.backgroundColor = document.body.classList.contains('new-theme') ? '#a4bfeb' : '#d9b9ed';
-        button.style.color = document.body.classList.contains('new-theme') ? '#3863a8' : '#6c3a8b';
+        button.style.backgroundColor = theme[count];
+        button.style.color = text[count];
+        
 
         if (count < theme.length) {
                 console.log(`Current color: ${theme[count]}`);
