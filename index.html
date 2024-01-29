@@ -1,11 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 5</title>
+    <style>
+        body{
+            background-color: #a4bfeb;
+            color: #3863a8;
+        }
+        h3{
+            font-weight: 300;
+            font-size: 24pt;
+            margin-bottom: 10px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .new-theme {
+            background-color: #d9b9ed;
+            color: #6c3a8b;
+        }
+        .elements{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #toggleModeButton{
+            background-color: #ecf018;
+            color: rgb(160, 160, 11);
+            border-radius: 15px;
+            padding: 15px 22px;
+            border: none;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 12pt;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="elements">
+        <h3>hello javascript ^_^</h3>
+        <button id="toggleModeButton">new theme!</button>
+    </div>
 </body>
+
+<script>
+    let count = 0;
+    let theme = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+
+    document.getElementById('toggleModeButton').addEventListener('click', function() {
+        document.body.classList.toggle('new-theme');
+
+        let button=document.getElementById('toggleModeButton');
+        button.style.backgroundColor = document.body.classList.contains('new-theme') ? '#a4bfeb' : '#d9b9ed';
+        button.style.color = document.body.classList.contains('new-theme') ? '#3863a8' : '#6c3a8b';
+
+        if (count < theme.length) {
+                console.log(`Current color: ${theme[count]}`);
+                count++;
+            } 
+        if (count >= theme.length){
+                count = 0;
+            }   
+    });
+</script>
 </html>
